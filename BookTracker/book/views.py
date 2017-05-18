@@ -18,8 +18,8 @@ def book_new(request):
 		if form.is_valid():
 			book = form.save(commit=False)
 			books.objects.filter(title = book.title).delete()
-        	book.save()
-        	return redirect('book_list')
+			book.save()			
+			return render(request, 'success_update.html')
 	else:
 		form = BookForm()
 	return render(request, 'book_edit.html', {'form': form})
@@ -31,28 +31,14 @@ def book_list(request):
 	return render(request, 'book_list.html', {'books' : entries})
 
 
-def book_search(request):
-	if request.method == "POST":
-		form = SearchForm(request.POST)
-		if form.is_valid():
-			book = form.save(commit=False)
-			entries = books.objects.filter(title = book.title)
-			for book in entries:
-				print book.title
-        	return render(request, 'book_list.html', {'books' : entries})
-	else:
-		form = SearchForm()
-	return render(request, 'book_search.html', {'form': form})
-
 
 def book_delete(request):
 	if request.method == "POST":
 		form = DeleteForm(request.POST)
 		if form.is_valid():
 			book = form.save(commit=False)
-			print(book)
-			books.objects.filter(title = book.title).delete()
-        	return render(request, 'success_delete.html')
+			books.objects.filter(title = book.title).delete()			
+			return render(request, 'success_delete.html')
 	else:
 		form = DeleteForm()
 	return render(request, 'book_delete.html', {'form': form})
@@ -68,3 +54,14 @@ def book_update(request):
 	else:
 		form = UpdateForm()
 	return render(request, 'book_update.html', {'form': form})
+
+def book_search(request):
+	if request.method == "POST":
+		form = SearchForm(request.POST)
+		if form.is_valid():
+			book = form.save(commit=False)
+			entries = books.objects.filter(title = book.title)		
+			return render(request, 'book_list.html', {'books' : entries})
+	else:
+		form = SearchForm()
+	return render(request, 'book_search.html', {'form': form})
