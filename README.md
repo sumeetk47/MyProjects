@@ -22,7 +22,7 @@ DATABASES = {
 Change USER and PASSWORD fields with correct MySQL login details.
 Next, simply run this App using following command:
 - python manage.py runserver
-Connect from your browser at http://127.0.0.1:8000
+- Connect from your browser at http://127.0.0.1:8000
 
 Design Decisions:
 - All the features were implemented and tested
