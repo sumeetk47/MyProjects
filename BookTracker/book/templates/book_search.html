@@ -1,0 +1,27 @@
+
+{% extends 'index.html' %}
+{% block content %}
+
+<html>
+<style>
+form {
+ 	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+</style>
+
+    <div>
+    <h3>Simplifying Tracking</h3>
+    <h1 align="center">Search Book</h1>
+    <form method="POST" class="search-form" align="center">{% csrf_token %}
+        <table>{{ form.as_table }}</table>
+        <button type="submit" class="save btn btn-default">Search</button>
+    </form>
+    </div>
+
+</html>
+{% endblock %}
+

@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+ 
+<html lang="en">
+
+
+ {% block content %}
+
+    <h3>Simplifying Tracking</h3>
+    <h3 align="center">List</h3>
+    <table class="table table-bordered">
+    <tr>
+    <th>Title</th>
+    <th>Year</th> 
+    <th>Rating</th>
+  </tr>
+  <tbody>
+    {% for book in books %}
+    <tr>
+        <td align="center">{{ book.title }}</td>
+        <td align="center">{{ book.year }}</td>
+        <td align="center">{{ book.rating }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
+      
+</html>
