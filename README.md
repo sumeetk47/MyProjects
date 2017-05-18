@@ -8,8 +8,8 @@ This project contains small book tracking system used to keep track of books. It
 
 Steps to run the project:
 This project is created using Python's Django framework. Moreover, it needs MySQL database access to store the data.
-To run this project, make sure you have mySQL daemon running. Connect MySQL client to the daemon and create database named 'BookTracker'.
-Now, change settings.py contains right parameters for DATABASES field. Following is an example:
+To run this project, make sure you have mySQL daemon running. Connect MySQL client to the daemon and create database named 'booktracker'.
+Now, change settings.py to contain right parameters for DATABASES field. Following is an example:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
